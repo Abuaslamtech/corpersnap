@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { TbBrandWhatsappFilled } from "react-icons/tb";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa6";
+import { Link } from "react-router";
 
 function About() {
   return (
@@ -211,9 +212,9 @@ function About() {
               Join thousands of corps members who have already created their
               celebration flyers with CorperSnap!
             </p>
-            <button className="bg-white text-green-700 font-inter font-bold py-3 px-8 rounded-xl hover:bg-gray-50 transition-colors duration-200 shadow-lg transform hover:scale-105">
+            <Link to="/auth" className="bg-white text-green-700 font-inter font-bold py-3 px-8 rounded-xl hover:bg-gray-50 transition-colors duration-200 shadow-lg transform hover:scale-105">
               Get Started Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>
