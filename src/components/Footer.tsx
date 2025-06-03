@@ -1,5 +1,7 @@
-
 import { Link } from "react-router";
+import { FaFacebook } from "react-icons/fa6";
+import { TbBrandWhatsappFilled } from "react-icons/tb";
+import { FaGlobe } from "react-icons/fa6";
 
 function Footer() {
   return (
@@ -52,8 +54,17 @@ function Footer() {
             </p>
 
             {/* Tagline */}
-            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-right">
-              Making POP celebrations memorable ✨
+            <p className="text-white text-xs sm:text-sm text-center sm:text-right flex flex-row gap-2 items-center">
+              Built by Abuaslam Tech Lab <span className="text-yellow-400">|</span>
+              <a href="https://facebook.com/abuaslamtech">
+                <FaFacebook size={20} color="white"/>
+              </a>
+              <a href="https://wa.me/2347035974746">
+                <TbBrandWhatsappFilled size={20} color="white"/>
+              </a>
+              <a href="https://abuaslam.vercel.app">
+                <FaGlobe size={20} color="white"/>
+              </a>
             </p>
           </div>
         </div>

@@ -2,8 +2,8 @@ import { useState } from "react";
 import template1 from "../assets/templates/template1.png";
 import template2 from "../assets/templates/template2.png";
 import template3 from "../assets/templates/template3.png";
-import template4 from "../assets/templates/template4.png";
-import template5 from "../assets/templates/template5.png";
+// import template4 from "../assets/templates/template4.png";
+// import template5 from "../assets/templates/template5.png";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router";
 import Header from "../components/Header";
@@ -38,29 +38,29 @@ function Auth() {
       preview: template3,
       description: "Simple and elegant white background design",
     },
-    {
-      id: 4,
-      name: "Corps Pride",
-      category: "Traditional",
-      preview: template4,
-      isPopular: true,
-      description: "Traditional NYSC colors with patriotic elements",
-    },
-    {
-      id: 5,
-      name: "Modern Gradient",
-      category: "Contemporary",
-      preview: template5,
-      isNew: true,
-      description: "Contemporary gradient design with modern typography",
-    },
-    {
-      id: 6,
-      name: "Elegant Portrait",
-      category: "Professional",
-      preview: template5,
-      description: "Portrait-focused layout with elegant borders",
-    },
+    // {
+    //   id: 4,
+    //   name: "Corps Pride",
+    //   category: "Traditional",
+    //   preview: template4,
+    //   isPopular: true,
+    //   description: "Traditional NYSC colors with patriotic elements",
+    // },
+    // {
+    //   id: 5,
+    //   name: "Modern Gradient",
+    //   category: "Contemporary",
+    //   preview: template5,
+    //   isNew: true,
+    //   description: "Contemporary gradient design with modern typography",
+    // },
+    // {
+    //   id: 6,
+    //   name: "Elegant Portrait",
+    //   category: "Professional",
+    //   preview: template5,
+    //   description: "Portrait-focused layout with elegant borders",
+    // },
   ];
 
   interface Template {
@@ -117,7 +117,7 @@ function Auth() {
         </div>
 
         {/* Templates Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-6">
           {templates.map((template) => (
             <div
               key={template.id}
