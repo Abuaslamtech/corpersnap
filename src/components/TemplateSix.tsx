@@ -1,4 +1,4 @@
-\
+
 import ComingSoon from './ComingSoon'
 
 function TemplateSix() {
