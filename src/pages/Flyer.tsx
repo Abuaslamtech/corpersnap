@@ -1,3 +1,4 @@
+import { type JSX } from "react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { AlertCircle, ArrowLeft } from "lucide-react";
@@ -11,11 +12,27 @@ import Header from "../components/Header";
 function Flyer() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(true);
 
+  interface Template {
+    id: number;
+    name: string;
+    category: string;
+    preview: string;
+    description: string;
+    isPopular?: boolean;
+    isNew?: boolean;
+  }
+
+  type TemplateComponentType  = 
+    (props: { templateData: Template }) => JSX.Element;
+  
+
   // Template component mapping
-  const templateComponents = {
+  const templateComponents: Record<number, TemplateComponentType> = {
     1: TemplateOne,
     2: TemplateTwo,
     3: TemplateThree,
@@ -32,14 +49,14 @@ function Flyer() {
     if (templateData && templateId) {
       setSelectedTemplate({
         id: templateId,
-        ...templateData
+        ...templateData,
       });
     } else {
       // If no template data, try to get from URL params or set default
       console.warn("No template data found in navigation state");
       // You could also redirect back to template selection or show default template
     }
-    
+
     setIsLoading(false);
   }, [location.state]);
 
@@ -69,7 +86,7 @@ function Flyer() {
     }
 
     const TemplateComponent = templateComponents[selectedTemplate.id];
-    
+
     if (!TemplateComponent) {
       return (
         <div className="flex flex-col items-center justify-center min-h-[60vh] p-8">
@@ -79,7 +96,8 @@ function Flyer() {
               Template Not Found
             </h2>
             <p className="text-gray-600 font-inter mb-6">
-              The selected template (ID: {selectedTemplate.id}) is not available.
+              The selected template (ID: {selectedTemplate.id}) is not
+              available.
             </p>
             <button
               onClick={() => navigate("/auth")}
@@ -104,11 +122,11 @@ function Flyer() {
                 className="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span className="font-inter font-medium">Back to Templates</span>
+                <span className="font-inter font-medium">
+                  Back to Templates
+                </span>
               </button>
-             
             </div>
-            
           </div>
         </div>
 
@@ -138,11 +156,9 @@ function Flyer() {
     <div className="flex flex-col bg-gray-50 min-h-screen">
       {/* Fixed Header */}
       <Header />
-      
+
       {/* Main Content */}
-      <div className="flex-1">
-        {renderTemplate()}
-      </div>
+      <div className="flex-1">{renderTemplate()}</div>
     </div>
   );
 }
