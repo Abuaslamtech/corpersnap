@@ -38,7 +38,7 @@ function Home() {
         >
           Get Started
         </Link>
-        {/* <p className="text-xs font-inter text-gray-600 pb-4">Used by over 100+ corps members nationwide!</p> */}
+        <p className="text-xs font-inter text-gray-600 pb-4">Used by over 100+ corps members nationwide!</p>
       </section>
     </div>
   );
