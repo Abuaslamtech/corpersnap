@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import template1 from "../assets/templates/template1.png";
 import template2 from "../assets/templates/template2.png";
 import template3 from "../assets/templates/template3.png";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import Header from "../components/Header";
 
 function Auth() {
-  const [previewModal, setPreviewModal] = useState(null);
+  const [previewModal, setPreviewModal] = useState<Template | null >(null);
   const [isNavigating, setIsNavigating] = useState(false);
   const navigate = useNavigate();
 
@@ -63,11 +63,21 @@ function Auth() {
     },
   ];
 
-  const handlePreview = (template) => {
+  interface Template {
+    id: number;
+    name: string;
+    category: string;
+    preview: string; // This is an imported image path/URL
+    description: string;
+    isPopular?: boolean; // Optional property
+    isNew?: boolean; // Optional property
+  }
+
+  const handlePreview = (template:Template) => {
     setPreviewModal(template);
   };
 
-  const handleUseTemplate = (template) => {
+  const handleUseTemplate = (template:Template) => {
     setIsNavigating(true);
     console.log("Navigating to editor with template:", template.name);
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import  { useState, useRef } from "react";
 
 // Using a placeholder for result1 - replace with your actual import
 import result1 from "../assets/results/result1.png";
